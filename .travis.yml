@@ -1,0 +1,24 @@
+dist: trusty
+sudo: false
+language: php
+
+notifications:
+  email: false
+
+php:
+  - 7.2
+  - 7.3
+  - 7.4
+
+install: travis_retry composer update --prefer-dist --no-interaction
+
+script:
+  - ENABLE_SECOND_LEVEL_CACHE=0 XDEBUG_MODE=coverage composer test -- --coverage-clover=coverage.xml -v
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+after_success:
+  # Submit coverage report to codecov.io
+  - bash <(curl -s https://codecov.io/bash)

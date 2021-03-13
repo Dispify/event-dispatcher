@@ -1,0 +1,42 @@
+{
+    "name": "dispify/event-dispatcher",
+    "type": "library",
+    "description": "Lightweight PSR-14 compliant event dispatcher",
+    "keywords": ["event dispatcher", "event", "dispatcher", "psr-14"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Disparity",
+            "email": "disparity-github@yandex.ru"
+        }
+    ],
+    "provide": {
+        "psr/event-dispatcher-implementation": "1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dispify\\EventDispatcher\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Dispify\\EventDispatcher\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "platform": {
+            "php": "7.2"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.2 || 8.0",
+        "psr/event-dispatcher": "^1.0@dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.5"
+    },
+    "scripts": {
+        "test": "@composer exec -v -- phpunit"
+    }
+}

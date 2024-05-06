@@ -11,8 +11,8 @@ class EventDispatcherTest extends TestCase
 {
     public function testDispatch()
     {
-        $event = new \stdClass();
-        $listener = $this->createPartialMock(\stdClass::class, ['first', 'second']);
+        $event = new CustomEvent();
+        $listener = $this->createPartialMock(CustomEvent::class, ['first', 'second']);
 
         $listener
             ->expects(self::at(0))
@@ -42,7 +42,7 @@ class EventDispatcherTest extends TestCase
         $event = $this->createMock(StoppableEventInterface::class);
         $event->method('isPropagationStopped')->willReturn(true);
 
-        $listener = $this->createPartialMock(\stdClass::class, ['__invoke']);
+        $listener = $this->createPartialMock(CustomListener::class, ['__invoke']);
         $listener->expects(self::never())->method('__invoke');
 
         ($listenerProvider = $this->createMock(ListenerProviderInterface::class))

@@ -12,9 +12,9 @@ class EventListenerProviderTest extends TestCase
 {
     public function testGetListenersForEvent()
     {
-        $event = new \stdClass();
+        $event = new CustomEvent();
 
-        $listener = $this->createPartialMock(\stdClass::class, ['first', 'second', 'third']);
+        $listener = $this->createPartialMock(CustomEvent::class, ['first', 'second', 'third']);
         $listener
             ->expects(self::never())
             ->method('first')

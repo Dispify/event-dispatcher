@@ -11,7 +11,7 @@ class ListenerChainableProvider implements ListenerProviderInterface
      */
     private $providers = [];
 
-    public function __construct(ListenerProviderInterface $listenerProvider = null)
+    public function __construct(?ListenerProviderInterface $listenerProvider = null)
     {
         if ($listenerProvider) {
             $this->appendListenerProvider($listenerProvider);
